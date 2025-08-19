@@ -1,13 +1,12 @@
 {
-  "name": "arconique-villas",
+  "name": "arconique-price-list",
   "version": "1.0.0",
-  "description": "Arconique Villa Development - Projects & Price List with Admin Panel",
+  "description": "Arconique Projects Price List",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -15,19 +14,17 @@
     "framer-motion": "^10.16.4"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5"
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.22.0",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.8.0",
+    "gh-pages": "^6.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0",
+    "webpack-dev-server": "^4.15.0"
   },
-  "keywords": ["react", "villa", "pricing", "admin", "bali"],
-  "author": "Your Name",
-  "license": "MIT"
+  "homepage": "https://YOUR_USERNAME.github.io/YOUR_REPO_NAME"
 }
