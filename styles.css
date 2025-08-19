@@ -5,245 +5,337 @@
     box-sizing: border-box;
 }
 
+html, body, #main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f7f7ed;
-    font-size: 16px;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000;
+    background-color: #fff;
 }
 
-.container {
-    max-width: 1296px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header Styles */
-.header {
-    text-align: center;
-    padding: 60px 40px;
-    background: linear-gradient(135deg, #f7f7ed 0%, #ffffff 100%);
-    border-radius: 25px;
-    margin-bottom: 50px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.header h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.header p {
-    font-size: 1.4rem;
-    color: #7f8c8d;
+/* Typography */
+.framer-text {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-style: normal;
     font-weight: 400;
+    color: inherit;
+    font-size: inherit;
+    letter-spacing: 0;
+    text-transform: none;
+    text-decoration: none;
+    line-height: 1.2em;
+    text-align: start;
 }
 
-/* Project Section Styles */
-.project-section {
-    background: white;
-    border-radius: 25px;
-    padding: 50px;
-    margin-bottom: 50px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border: 1px solid #e9ecef;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-}
-
-.project-title {
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 40px;
-    text-align: center;
-    border-bottom: 4px solid #3498db;
-    padding-bottom: 20px;
+/* Layout */
+#main {
+    min-height: 100vh;
+    width: auto;
     position: relative;
 }
 
-.project-title::after {
-    content: '';
+/* Desktop Version */
+.desktop-version {
+    display: block;
+    background-color: #f7f7ed;
+    height: 2160px;
+    overflow: clip;
+    position: relative;
+    width: 1296px;
+}
+
+/* Mobile Version */
+.mobile-version {
+    display: none;
+    background-color: #000;
+    height: 2160px;
+    overflow: clip;
+    position: relative;
+    width: 1296px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1295px) {
+    .desktop-version {
+        display: none;
+    }
+    
+    .mobile-version {
+        display: block;
+    }
+}
+
+/* Footer */
+.footer {
     position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: #e74c3c;
-    border-radius: 2px;
-}
-
-/* Price Includes Styles */
-.price-includes {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
-    padding: 30px;
-    border-radius: 20px;
-    margin: 30px 0;
-    border-left: 6px solid #3498db;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.price-includes h3 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.price-includes ul {
-    list-style: none;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0;
 }
 
-.price-includes li {
-    padding: 12px 0;
-    border-bottom: 1px solid #e9ecef;
+.footer-content {
+    flex: none;
+    height: auto;
     position: relative;
-    padding-left: 35px;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    white-space: pre;
+    width: auto;
 }
 
-.price-includes li:hover {
-    color: #3498db;
+.copyright {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 130%;
+    color: #000;
 }
 
-.price-includes li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #27ae60;
-    font-weight: bold;
-    font-size: 1.2rem;
-    background: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.price-includes li:last-child {
-    border-bottom: none;
+.mobile-copyright {
+    color: #fff;
 }
 
 /* Table Styles */
 .table-container {
-    overflow-x: auto;
-    margin: 40px 0;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: absolute;
+    left: 50px;
+    top: 312px;
+    width: 1052px;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow: visible;
+    padding: 0;
 }
 
-.property-table {
+.table {
+    background-color: #fff;
+    border: 1px dashed #b9b9b9;
+    border-radius: 4px;
+    height: 347px;
     width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 20px;
     overflow: hidden;
+    position: relative;
 }
 
-.property-table th {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    padding: 25px 20px;
-    text-align: left;
+/* Row Styles */
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    height: min-content;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.header-row {
+    background-color: #fffffffc;
+    height: 23px;
+}
+
+.data-row {
+    background-color: #f7f7edfc;
+    height: 36px;
+}
+
+/* Cell Styles */
+.cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    height: 100%;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+}
+
+.header-cell {
+    background-color: #0000000f;
+    border-bottom: 1.05px solid #929090;
+    width: 55px;
+}
+
+.data-cell {
+    background-color: #0000000f;
+    border-bottom: 1.05px solid #929090;
+    width: 55px;
+}
+
+.cell-content {
+    align-items: flex-start;
+    background-color: #fff0;
+    border-bottom: 0.3px solid #b9b9b9;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    height: 100%;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 10px 12px;
+    position: relative;
+    width: 100%;
+}
+
+/* Text Styles */
+.header-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
     font-weight: 600;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    line-height: 130%;
+    color: #000;
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 47px;
 }
 
-.property-table td {
-    padding: 22px 20px;
-    border-bottom: 1px solid #e9ecef;
-    font-size: 1.1rem;
-    transition: background 0.3s ease;
+.data-text {
+    font-size: 12px;
+    line-height: 130%;
+    color: #000;
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 31px;
 }
 
-.property-table tr:nth-child(even) {
-    background: #f8f9fa;
+/* Background Image */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
 }
 
-.property-table tr:hover {
-    background: #e3f2fd;
-    transform: scale(1.01);
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.property-table tr:last-child td {
-    border-bottom: none;
+/* Villa Labels */
+.villa-labels {
+    position: absolute;
+    z-index: 10;
 }
 
-/* Footer Styles */
-.footer {
-    text-align: center;
-    padding: 40px;
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    border-radius: 25px;
-    margin-top: 30px;
+.villa-label {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 130%;
+    color: #000;
 }
 
-.footer p {
-    font-size: 1.1rem;
-    font-weight: 400;
+/* Main Title */
+.main-title {
+    position: absolute;
+    z-index: 10;
+}
+
+.main-title h1 {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 100%;
+    color: #000;
+}
+
+/* Price Info */
+.price-info {
+    position: absolute;
+    z-index: 10;
+}
+
+.price-info h2 {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 100%;
+    color: #000;
+}
+
+.price-details p {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 100%;
+    color: #999;
+}
+
+/* Villa Row Labels */
+.villa-row-labels {
+    position: absolute;
+    z-index: 10;
+}
+
+.villa-row-labels p {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 130%;
+    color: #000;
+}
+
+/* Status Colors */
+.status-available {
+    color: #000;
+}
+
+.status-on-hold {
+    color: #b2b2b2;
+}
+
+.status-reserved {
+    color: #ffb06c;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
+@media (max-width: 1295px) {
+    .desktop-version {
+        display: none;
     }
     
-    .header {
-        padding: 40px 20px;
-    }
-    
-    .header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .project-section {
-        padding: 30px 20px;
-    }
-    
-    .project-title {
-        font-size: 2rem;
-    }
-    
-    .price-includes {
-        padding: 20px;
-    }
-    
-    .property-table th,
-    .property-table td {
-        padding: 15px 10px;
-        font-size: 0.9rem;
+    .mobile-version {
+        display: block;
     }
 }
 
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 2rem;
+@media (min-width: 1296px) {
+    .mobile-version {
+        display: none;
     }
     
-    .project-title {
-        font-size: 1.5rem;
-    }
-    
-    .price-includes li {
-        font-size: 1rem;
-        padding: 10px 0 10px 30px;
+    .desktop-version {
+        display: block;
     }
 }
